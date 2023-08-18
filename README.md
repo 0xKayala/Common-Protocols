@@ -1,8 +1,8 @@
 # Common-Protocols
-<hr/>
+
 <p>Internet protocols are standardized rules and guidelines defined in RFCs that specify how devices on a network should communicate with each other. They ensure that devices on a network can exchange information consistently and reliably, regardless of the hardware and software used. For devices to communicate on a network, they need to be connected through a communication channel, such as a wired or wireless connection. The devices then exchange information using a set of standardized protocols that define the format and structure of the data being transmitted. The two main types of connections used on networks are <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">Transmission Control Protocol</a> (<code>TCP</code>) and <a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol">User Datagram Protocol</a> (<code>UDP</code>).</p>
 <p>We need to deal with and know the different and most used protocols. As we have already learned, these protocols are the basis of all communication between our devices and computers in the networks. We have compiled below many of these protocols that we will be dealing with throughout the modules. The better we understand them, the more effectively we can work with them.</p>
-<hr/>
+
 ## Transmission Control Protocol
 <p><code>TCP</code> is a <code>connection-oriented</code> protocol that establishes a virtual connection between two devices before transmitting data by using a <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Connection_establishment">Three-Way-Handshake</a>. This connection is maintained until the data transfer is complete, and the devices can continue to send data back and forth as long as the connection is active.</p>
 <p>For example, When we enter a URL into our web browser, the browser sends an HTTP request to the server hosting the website using <code>TCP</code>. The server responds by sending the HTML code for the website back to the browser using <code>TCP</code>. The browser then uses this code to render the website on our screen. This process relies on a <code>TCP</code> connection being established between the browser and the web server and maintained until the data transfer is complete. As a result, <code>TCP</code> is reliable but slower than UDP because it requires additional overhead for establishing and maintaining the connection.</p>
@@ -276,7 +276,7 @@
 </tr>
 </tbody>
 </table>
-<hr/>
+
 ## User Datagram Protocol
 <p>On the other hand, <code>UDP</code> is a <code>connectionless</code> protocol, which means it does not establish a virtual connection before transmitting data. Instead, it sends the data packets to the destination without checking to see if they were received.</p>
 <p>For example, when we stream or watch a video on a platform like YouTube, the video data is transmitted to our device using <code>UDP</code>. This is because the video can tolerate some data loss, and the transmission speed is more important than the reliability. If a few packets of video data are lost along the way, it will not significantly impact the overall quality of the video. This makes <code>UDP</code> faster than TCP but less reliable because there is no guarantee that the packets will reach their destination.</p>
@@ -430,7 +430,7 @@
 </tr>
 </tbody>
 </table>
-<hr/>
+
 ## ICMP
 <p><a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol">Internet Control Message Protocol</a> (<code>ICMP</code>) is a protocol used by devices to communicate with each other on the Internet for various purposes, including error reporting and status information. It sends requests and messages between devices, which can be used to report errors or provide status information.</p>
 <h4>ICMP Requests</h4>
@@ -504,7 +504,7 @@
 <p>Another crucial part of ICMP for us is the <a href="https://en.wikipedia.org/wiki/Time_to_live">Time-To-Live</a> (<code>TTL</code>) field in the ICMP packet header that limits the packet's lifetime as it travels through the network. It prevents packets from circulating indefinitely on the network in the event of routing loops. Each time a packet passes through a router, the router decrements the <code>TTL value by 1</code>. When the TTL value reaches <code>0</code>, the router discards the packet and sends an ICMP <code>Time Exceeded</code> message back to the sender.</p>
 <p>We can also use <code>TTL</code> to determine the number of hops a packet has taken and the approximate distance to the destination. For example, if a packet has a <code>TTL</code> of 10 and takes 5 hops to reach its destination, it can be inferred that the destination is approximately 5 hops away. For example, if we see a ping with the <code>TTL</code> value of <code>122</code>, it could mean that we are dealing with a Windows system (<code>TTL 128</code> by default) that is 6 hops away.</p>
 <p>However, it is also possible to guess the operating system based on the default <code>TTL</code> value used by the device. Each operating system typically has a default <code>TTL</code> value when sending packets. This value is set in the packet's header and is decremented by 1 each time the packet passes through a router. Therefore, examining a device's default <code>TTL</code> value makes it possible to infer which operating system the device is using. For example: Windows systems (<code>2000/XP/2003/Vista/10</code>) typically have a default <code>TTL</code> value of 128, while macOS and Linux systems typically have a default <code>TTL</code> value of 64 and Solaris' default <code>TTL</code> value of 255. However, it is important to note that the user can change these values, so they should be independent of a definitive way to determine a device's operating system.</p>
-<hr/>
+
 ## VoIP
 <p><a href="https://www.fcc.gov/general/voice-over-internet-protocol-voip">Voice over Internet Protocol</a> (<code>VoIP</code>) is a method of transmitting voice and multimedia communications. For example, it allows us to make phone calls using a broadband internet connection instead of a traditional phone line, like Skype, Whatsapp, Google Hangouts, Slack, Zoom, and others.</p>
 <p>The most common VoIP ports are <code>TCP/5060</code> and <code>TCP/5061</code>, which are used for the <a href="https://en.wikipedia.org/wiki/Session_Initiation_Protocol">Session Initiation Protocol</a> (SIP). However, the port <code>TCP/1720</code> may also be used by some VoIP systems for the <a href="https://en.wikipedia.org/wiki/H.323">H.323 protocol</a>, a set of standards for multimedia communication over packet-based networks. Still, SIP is more widely used than H.323 in VoIP systems.</p>
